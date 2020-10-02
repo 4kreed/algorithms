@@ -18,7 +18,7 @@ def Burbujita(nums):
                 seguir = True
 
 
-
+#ej2
 if __name__=="__main__":
 
     numeros = [6,8,4,3,2]
