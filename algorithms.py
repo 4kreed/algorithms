@@ -8,7 +8,7 @@ Created on Fri Oct  2 12:56:21 2020
 
 
 #Complejidad O(n^2). Una kk
-def Burbujita(nums):
+def burbujita(nums):
     seguir = True
     while seguir:
         seguir = False
@@ -18,14 +18,29 @@ def Burbujita(nums):
                 seguir = True
 
 
+
+#Complejidad O(n^2), también es malo
+def selection(nums):
+    for i in range(len(nums)):
+        menor = i
+        for j in range(i + 1, len(nums)):
+            if nums[j] < nums[menor]:
+                menor = j
+        nums[i], nums[menor] = nums[menor], nums[i]
+
+
+
+#Luego vendrán mejor, o no...
+
+
 #ej2
 if __name__=="__main__":
 
     numeros = [6,8,4,3,2]
-    Burbujita(numeros)
+    
+    burbujita(numeros)
     print(numeros)
     
-    numeros2 = [3,33,333,5.4]
-    Burbujita(numeros2)
-    print(numeros2)
+    selection(numeros)
+    print(numeros)
     
