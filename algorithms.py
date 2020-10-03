@@ -1,13 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Fri Oct  2 12:56:21 2020
-
 @author: albduranlopez
 """
 
 
-#Complejidad O(n^2). Una kk
+#Complejidad O(n^2). Una kk, mal
 def burbujita(nums):
     seguir = True
     while seguir:
@@ -29,10 +27,18 @@ def selection(nums):
         nums[i], nums[menor] = nums[menor], nums[i]
 
 
-
-#Luego vendrán mejor, o no...
-
-
+#Complejidad O(n^2), joe
+def insertion(nums):
+    for i in range(1, len(nums)):
+        insertar = nums[i]
+        j = i - 1
+        while j >= 0 and nums[j] > insertar:
+            nums[j + 1] = nums[j]
+            j = j - 1
+        nums[j + 1] = insertar
+        
+        
+        
 #ej2
 if __name__=="__main__":
 
@@ -43,4 +49,15 @@ if __name__=="__main__":
     
     selection(numeros)
     print(numeros)
+    
+    
+    numeros = [6,8,4,56,2]
+    insertion(numeros2)
+    print(numeros2)
+    
+    
+    
+    
+    
+    
     
