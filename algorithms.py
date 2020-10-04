@@ -39,6 +39,51 @@ def insertion(nums):
         
         
         
+        
+
+def merge(izq, dcha):
+    if len(izq) == 0:
+        return dcha
+
+    if len(dcha) == 0:
+        return izq
+
+    dev = []
+    index_izq = index_dcha = 0
+
+   
+    while len(dev) < len(izq) + len(dcha):
+       
+        if izq[index_izq] <= dcha[index_dcha]:
+            dev.append(izq[index_izq])
+            index_izq += 1
+        else:
+            dev.append(dcha[index_dcha])
+            index_dcha += 1
+
+       
+        if index_dcha == len(dcha):
+            dev += izq[index_izq:]
+            break
+
+        if index_izq == len(izq):
+            dev += dcha[index_dcha:]
+            break
+
+    return dev
+
+
+def mergesort(nums):
+    if len(nums) < 2:
+        return nums
+
+    mitad = len(nums) // 2
+    return merge(mergesort(nums[:mitad]),mergesort(nums[mitad:]))
+
+
+
+
+
 #ej2
 if __name__=="__main__":
 
@@ -50,10 +95,11 @@ if __name__=="__main__":
     selection(numeros)
     print(numeros)
     
+    insertion(numeros)
+    print(numeros)
     
-    numeros = [6,8,4,56,2]
-    insertion(numeros2)
-    print(numeros2)
+    mergesort(numeros)
+    print(numeros)
     
     
     
