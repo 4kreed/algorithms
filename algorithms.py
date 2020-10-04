@@ -73,6 +73,14 @@ def merge(izq, dcha):
     return dev
 
 
+def mergesort(nums):
+    if len(nums) < 2:
+        return nums
+
+    mitad = len(nums) // 2
+    return merge(mergesort(nums[:mitad]),mergesort(nums[mitad:]))
+
+
 
 
 
@@ -87,10 +95,11 @@ if __name__=="__main__":
     selection(numeros)
     print(numeros)
     
+    insertion(numeros)
+    print(numeros)
     
-    numeros = [6,8,4,56,2]
-    insertion(numeros2)
-    print(numeros2)
+    mergesort(numeros)
+    print(numeros)
     
     
     
