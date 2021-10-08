@@ -81,6 +81,20 @@ def mergesort(nums):
     return merge(mergesort(nums[:mitad]),mergesort(nums[mitad:]))
 
 
+#valid
+class parenthesis:
+   def check_if_correct_parent(self, str1):
+        stack, pchar = [], {"(": ")", "{": "}", "[": "]"}
+        for parenthese in str1:
+            if parenthese in pchar:
+                stack.append(parenthese)
+            elif len(stack) == 0 or pchar[stack.pop()] != parenthese:
+                return False
+        return len(stack) == 0
+
+print(parenthesis().check_if_correct_parent("(){}[]"))
+print(parenthesis().check_if_correct_parent("()[{)}"))
+print(parenthesis().check_if_correct_parent("()"))
 
 
 
