@@ -47,3 +47,44 @@ class Set(frozenset):
         return Set(self.difference(other))
 
     Difference = __sub__
+    
+
+    def __mul__(self, other):
+        """
+        Cartesian product of self x other.
+
+        Args:
+            other : instance of Set.
+        """
+        if not isinstance(other, Set):
+            raise TypeError("One of the objects is not a set")
+        return Set(itertools.product(self,other, repeat=1))
+        #return Set((a,b) for a in self for b in other)
+
+    cartesian = __mul__
+
+    def pick(self):
+        """
+        Return an arbitrary element. (The finite Axiom of Choice is true!)
+        """
+
+        if len(self) == 0:
+            raise KeyError("This is an empty set")
+
+        for item in self: break
+        return item
+
+
+
+    def cardinality(self):
+        """ 
+        Returns the cardinality of self.
+        """
+        return len(self)
+
+
+    def is_finite(self):
+        """ 
+        Checks if self is finite.
+        """
+        return len(self)<math.inf
